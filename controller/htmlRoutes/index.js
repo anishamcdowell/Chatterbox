@@ -1,8 +1,8 @@
 const router = require('express').Router();
-const homeRoutes = require('./api/homeRoutes');
-// const forumRoutes = require('./api/forumRoutes');
-// const postRoutes = require('./api/postRoutes');
-// const commentRoutes = require('./api/commentRoutes');
+const homeRoutes = require('./homeRoutes');
+// const forumRoutes = require('./forumRoutes');
+// const postRoutes = require('./postRoutes');
+// const commentRoutes = require('./commentRoutes');
 
 router.use('/', homeRoutes);
 // router.use('/forums', forumRoutes);
