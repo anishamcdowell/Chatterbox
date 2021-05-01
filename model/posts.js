@@ -11,6 +11,9 @@ Post.init(
       primaryKey: true,
       autoIncrement: true,
     },
+    title: {
+      type: DataTypes.STRING,
+    },
     content: {
       type: DataTypes.STRING,
     },
@@ -25,13 +28,13 @@ Post.init(
         model: 'user',
         key: 'id',
       },
-    forum_id: {
-        type: DataTypes.INTEGER,
-        references: {
-            model: 'forum',
-            key: 'id',
-        }
-    }
+    // forum_id: {
+    //     type: DataTypes.INTEGER,
+    //     references: {
+    //         model: 'forum',
+    //         key: 'id',
+    //     }
+    // }
     },
   },
   {
