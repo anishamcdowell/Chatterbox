@@ -11,32 +11,35 @@ Post.init(
       primaryKey: true,
       autoIncrement: true,
     },
+    title: {
+      type: DataTypes.STRING,
+    },
     content: {
       type: DataTypes.STRING,
     },
-    date_created: {
-      type: DataTypes.DATE,
-      allowNull: false,
-      defaultValue: DataTypes.NOW,
-    },
+    // date_created: {
+    //   type: DataTypes.DATE,
+    //   allowNull: false,
+    //   defaultValue: DataTypes.NOW,
+    // },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
         model: 'user',
         key: 'id',
       },
-    forum_id: {
-        type: DataTypes.INTEGER,
-        references: {
-            model: 'forum',
-            key: 'id',
-        }
-    }
+    // forum_id: {
+    //     type: DataTypes.INTEGER,
+    //     references: {
+    //         model: 'forum',
+    //         key: 'id',
+    //     }
+    // }
     },
   },
   {
     sequelize,
-    timestamps: false,
+    // timestamps: false,
     freezeTableName: true,
     underscored: true,
     modelName: 'post',
