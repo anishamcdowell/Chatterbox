@@ -1,5 +1,4 @@
-  
-const { User } = require('../model');
+  const { User } = require('../model');
 
 const UserData = [
     {
@@ -19,8 +18,6 @@ const UserData = [
     }
 ];
 
-const seedUsers = () => {
-    console.log("====User DATA SEEDED====");
-    return User.bulkCreate(UserData);
-}
+const seedUsers = () => User.bulkCreate(UserData);
+
 module.exports = seedUsers;

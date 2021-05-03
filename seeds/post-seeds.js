@@ -1,5 +1,4 @@
-  
-const { Post } = require('../model');
+  const { Post } = require('../model');
 
 const postData = [{
         title: 'Post 1',
@@ -18,8 +17,6 @@ const postData = [{
     }
 ];
 
-const seedPosts = () => {
-    console.log("====POST DATA SEEDED====");
-    return Post.bulkCreate(postData);
-}
+const seedPosts = () => Post.bulkCreate(postData);
+
 module.exports = seedPosts;
