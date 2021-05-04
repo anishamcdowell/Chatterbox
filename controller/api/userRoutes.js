@@ -12,4 +12,10 @@ router.get("/", (req, res) => {
     })
 });
 
+// router.post();
+
+// router.put();
+
+// router.delete();
+
 module.exports = router;
