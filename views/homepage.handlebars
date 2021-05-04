@@ -1,4 +1,9 @@
-{{log posts}}
+{{!-- {{log posts}}
 <div class="containter-fluid">
-{{posts}}
+{{posts}} --}}
+<div>
+    {{#each a}}
+    <h1>{{allPost.user_id}}</h1>
+    <p>{{allPost.post_body}}</p>
+    {{/each}}
 </div>
