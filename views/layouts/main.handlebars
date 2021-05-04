@@ -30,7 +30,18 @@
 
     <div class="container-fluid">
         <div class="row">
-            <nav class="nav flex-column navbar-dark bg-dark p-3 col-2" style="height: 100vh" id="sidebar">
+            <main class="container col-10  p-5">
+                {{{ body }}}
+            </main>
+        </div>
+        
+        <footer class="">
+            {{{ footer }}}
+        </footer>
+
+
+
+        {{!-- <nav class="nav flex-column navbar-dark bg-dark p-3 col-2" style="height: 100vh" id="sidebar">
                 {{!-- <div class="container-fluid p-6" id="forums-list">
                     <ul class="list-group">
                         <li class="nav-item list-group-item list-group-item-success">
@@ -50,15 +61,7 @@
                 {{!-- <div id="my-feed-link">
                     <a href="">My Feed</a>
                 </div> --}}
-            </nav>
-            <main class="container col-10  p-5">
-                {{{ body }}}
-            </main>
-        </div>
-        
-        <footer class="">
-            {{{ footer }}}
-        </footer>
+            </nav> --}}
 
         {{!-- {{#if loggedIn}}
         <script src="/javascript/logout.js"></script>

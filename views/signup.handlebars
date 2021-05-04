@@ -1,18 +1,36 @@
-<main class="form-signin text-center">
+<main class="form-signin text-center mt-4">
     <form id="signup-form">
-        <h1 class="h3 mb-3 fw-normal">Sign up today!</h1>
+        <h1 class="h3 mb-5 fw-normal">Sign up today!</h1>
 
-        <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="username-signup" placeholder="Doe246" autofocus="true">
-            <label for="username-signup">Username</label>
+        <div class="form-floating mb-4 row">
+            <div class="col-lg-6 col-md-8 col-sm-10">
+            <input type="text" class="form-control" id="username-signup" placeholder="Username" autofocus="true">
+            </div>
         </div>
-        <div class="form-floating mb-3">
+        <div class="form-floating mb-4 row">
+            <div class="col-lg-6 col-md-8 col-sm-10">
+            <input type="text" class="form-control" id="email-signup" placeholder="Email" autofocus="true">
+            </div>
+        </div>
+        <div class="form-floating mb-4 row">
+            <div class="col-lg-6 col-md-8 col-sm-10">
+            <input type="text" class="form-control" id="password-signup" placeholder="Password" autofocus="true">
+            </div>
+        </div>
+
+
+        {{!-- <div class="form-floating mb-4 row">
+            <input type="text" class="form-control" id="email-signup" placeholder="Email" autofocus="true">
+            <label for="email-signup">Email</label>
+        </div>
+        <div class="form-floating mb-4 row">
             <input type="password" class="form-control" id="password-signup" placeholder="Password" autofocus="true">
             <label for="password-signup">Password</label>
         </div>
-
-        <button class="w-100 btn btn-lg btn-info mb-3" type="submit">Sign up</button>
-        <a class="login-link" href="/login">Log in instead</a>
+        <div class="form-group row">
+            <button class="w-100 btn btn-lg btn-info mb-5" type="submit">Login</button>
+        </div> --}}
+        <a class="login-link mt-3" href="/login">Already have an account? Login instead</a>
     </form>
 </main>
 
