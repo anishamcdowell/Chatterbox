@@ -1,10 +1,10 @@
 const withAuth = require('../utils/auth');
 const sequelize = require("../config/connection");
-const { User, Post } = require ("../models");
+const { User, Post, Forum, Comment } = require ("../models");
 const router = require("express").Router();
 
 //Get all posts and display as the homepage of the app
-router.get("/homepage", async (req, res) => {
+router.get("/", async (req, res) => {
     try {
         Post.findAll({
             attributes: [
@@ -14,7 +14,9 @@ router.get("/homepage", async (req, res) => {
             ]
         })
         .then(postData => {
+          
             const posts = postData.map(post => post.get({ plain: true}));
+            console.log("here", posts);
             res.render("homepage", {posts});
         });
     }
