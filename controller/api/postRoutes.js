@@ -1,5 +1,5 @@
 // const sequelize = require("../../config/connection");
-const { User, Post, Comment } = require("../../models")
+const { User, Post, Comment, Forum } = require("../../models")
 const router = require("express").Router();
 
 //Get all posts
@@ -14,10 +14,12 @@ router.get("/", async (req, res) => {
             ],
         })
         .then(postData => {
-            console.log(postData);
+            const posts = postData.map(post => post.get({ plain: true}));
+            res.render("homepage", {posts, loggedIn: req.session.loggedIn});
+            // console.log(postData);
             // const posts = postData.map(post => post.get({ plain: true}));
             // res.json(postData);
-            res.render("homepage", {allPost: postData});
+            // res.render("homepage", {allPost: postData});
         });
     }
     catch (err) {
