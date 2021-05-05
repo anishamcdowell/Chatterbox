@@ -1,25 +1,4 @@
-<nav class="nav flex-column navbar-dark bg-dark p-3" style="width: 300px; height: 100vh" id="sidebar">
-  {{!-- <div>logo div</div> --}}
-  <div class="container-fluid p-6" id="forums-list">
-    <ul class="list-group">
-      <li class="nav-item list-group-item list-group-item-success">
-        <a href="" class="nav-link">Forum 1</a>
-      </li>
-      <li class="nav-item list-group-item list-group-item-info">
-        <a href="" class="nav-link">Forum 2</a>
-      </li>
-      <li class="nav-item list-group-item list-group-item-success">
-        <a href="" class="nav-link">Forum 3</a>
-      </li>
-    </ul>
-  </div>
-  <div class="col-12 col-md-3 col-xl-2 bd-sidebar" id="favorite-users-list">
-    {{!-- self contained scroll box --}}
-  </div>
-  <div id="my-feed-link">
-    <a href="">My Feed</a>
-  </div>
-</nav>
+{{>sidebar}}
 
 {{#if posts.length}}
 <section>
