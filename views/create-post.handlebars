@@ -1,7 +1,12 @@
-{{!-- CARD TO CREATE A POST --}}
+<div class="row">
+    
+    {{>sidebar}}
+
+    <div class="col-sm-9 mx-auto mt-5 mb-5">
+        {{!-- CARD TO CREATE A POST --}}
         <div class="card" style="width: 50rem;">
             <div class="card-header bg-success">
-                New Post
+                created_at
             </div>
             <div class="card-body">
                 <form action="" method="POST">
@@ -15,8 +20,19 @@
                         <textarea rows="5" class="form-control" placeholder="Post Content"
                             name="post-content"></textarea>
                     </div>
+                    <div class="form-group mb-3">
+                        <select class="form-control" id="select-a-forum" placeholder="Select a forum">
+                            {{!-- {{#each forums as |forum|}} --}}
+                            <option>Select a forum</option>
+                            <option>Example</option>
+                            <option>Example</option>
+                            {{!-- <option>{{forum.title}}</option>
+                            {{/each}} --}}
+
+                        </select>
+                    </div>
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary">
+                        <button type="submit" class="btn btn-success">
                             Create
                         </button>
                         <button class="btn btn-danger">
@@ -26,3 +42,5 @@
                 </form>
             </div>
         </div>
+    </div>
+</div>
