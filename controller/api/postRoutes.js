@@ -1,5 +1,5 @@
 // const sequelize = require("../../config/connection");
-const { User, Post } = require("../../models")
+const { User, Post, Comment } = require("../../models")
 const router = require("express").Router();
 
 //Get all posts
@@ -9,13 +9,14 @@ router.get("/", async (req, res) => {
             attributes: [
                 "id",
                 "user_id",
-                "post_body",
+                "content",
                 "created_at"
-            ]
+            ],
         })
         .then(postData => {
+            console.log(postData);
             // const posts = postData.map(post => post.get({ plain: true}));
-            res.json(postData);
+            // res.json(postData);
             res.render("homepage", {allPost: postData});
         });
     }
@@ -29,11 +30,20 @@ router.get("/", async (req, res) => {
 router.get("/post/:id", async (req, res) => {
     try {
         Post.findOne({
+            where: {
+                id: req.params.id
+            },
             attributes: [
                 "id",
                 "user_id",
-                "post_body",
+                "content",
                 "created_at"
+            ],
+            include: [
+                {
+                    model: Comment,
+                    attributes: ["id", "comment_text", "post_id", "user_id", "created_at"],
+                }
             ]
         })
     .then(postData => {
