@@ -4,7 +4,7 @@ const { User, Post } = require ("../models");
 const router = require("express").Router();
 
 //Get all posts and display as the homepage of the app
-router.get("/", async (req, res) => {
+router.get("/homepage", async (req, res) => {
     try {
         Post.findAll({
             attributes: [
@@ -23,8 +23,6 @@ router.get("/", async (req, res) => {
         res.status(500).json(err);
     }
 });
-
-module.exports = router;
 
 // const router = require('express').Router();
 // const sequelize = require("../config/connection");
@@ -116,4 +114,15 @@ router.get('/signup', (req, res) => {
 
   res.render('signup');
 });
-// module.exports = router;
+
+router.get('/create-post', (req, res) => {
+  // If the user is already logged out, redirect the request to another route
+  if (req.session.logged_out) {
+    res.redirect('/signup');
+    return;
+  }
+
+  res.render('create-post');
+});
+
+module.exports = router;

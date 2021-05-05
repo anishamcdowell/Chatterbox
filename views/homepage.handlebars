@@ -1,9 +1,20 @@
-{{!-- {{log posts}}
-<div class="containter-fluid">
-{{posts}} --}}
-<div>
-    {{#each a}}
-    <h1>{{allPost.user_id}}</h1>
-    <p>{{allPost.post_body}}</p>
-    {{/each}}
+<div class="row">
+    <section class="mx-auto">
+
+        <div container>
+            {{#each posts as |post|}}
+            <div class="card mb-3">
+                <div class="card-header bg-success text-white">
+                    {{post.title}}
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{post.content}}</p>
+                </div>
+                <div class="card-footer text-success">
+                    Posted by <a href="">username</a> on 4/20/21{{post.created_at}}
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </section>
 </div>
