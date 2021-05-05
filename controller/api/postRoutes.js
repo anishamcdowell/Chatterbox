@@ -12,7 +12,6 @@ router.get("/", async (req, res) => {
                 "content",
                 "created_at"
             ],
-            include: [{ model: Comment }],
         })
         .then(postData => {
             console.log(postData);
@@ -31,11 +30,20 @@ router.get("/", async (req, res) => {
 router.get("/post/:id", async (req, res) => {
     try {
         Post.findOne({
+            where: {
+                id: req.params.id
+            },
             attributes: [
                 "id",
                 "user_id",
                 "content",
                 "created_at"
+            ],
+            include: [
+                {
+                    model: Comment,
+                    attributes: ["id", "comment_text", "post_id", "user_id", "created_at"],
+                }
             ]
         })
     .then(postData => {
