@@ -1,6 +1,5 @@
-<div>
-    {{#each a}}
-    <h1>{{allPost.user_id}}</h1>
-    <p>{{allPost.post_body}}</p>
-    {{/each}}
-</div>
+{{#if logged_in}}
+{{>sidebar}}
+{{/if}}
+
+{{>post}}
