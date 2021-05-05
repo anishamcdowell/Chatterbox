@@ -12,8 +12,11 @@
 
 <body>
 
+{{!-- TODO: add toggle for if a page is selected, current pages link in navbar has bootstrap class of active --}}
+{{!-- TODO: at certain breakpoint navbar menu links collapse to hamburger menu --}}
+
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark nav-pills nav-fill">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#"><img src="/images/CB-Logo-Transparent.png" style="height: 75px; "></a>
                 <ul class="navbar-nav">
@@ -27,7 +30,13 @@
                         <a href="/profile" class="nav-link">My Profile</a>
                     </li>
                     <li class="nav-item">
-                        <a href="/create-post" class="nav-link">New Post</a>
+                        <a href="/create-post" class="nav-link">Create Post</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/settings" class="nav-link">Settings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/help" class="nav-link">?</a>
                     </li>
                 </ul>
             </div>
@@ -40,7 +49,7 @@
         </main>
     </div>
 
-    <footer class="bg-light text-center text-lg-start mt-5">
+    <footer class="bg-light text-center text-lg-start">
         <!-- Copyright -->
         <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
             <p>Chatterbox © 2021</p>
