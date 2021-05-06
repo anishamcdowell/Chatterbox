@@ -52,25 +52,25 @@ router.get('/dashboard', withAuth, async (req, res) => {
   }
 });
 
-router.get('/login', (req, res) => {
-  // If the user is already logged in, redirect the request to another route
-  if (req.session.logged_in) {
-    res.redirect('/dashboard');
-    return;
-  }
+// router.get('/login', (req, res) => {
+//   // If the user is already logged in, redirect the request to another route
+//   if (req.session.logged_in) {
+//     res.redirect('/dashboard');
+//     return;
+//   }
 
-  res.render('login');
-});
+//   res.render('login');
+// });
 
-router.get('/signup', (req, res) => {
-  // If the user is already logged in, redirect the request to another route
-  if (req.session.logged_in) {
-    res.redirect('/dashboard');
-    return;
-  }
+// router.get('/signup', (req, res) => {
+//   // If the user is already logged in, redirect the request to another route
+//   if (req.session.logged_in) {
+//     res.redirect('/dashboard');
+//     return;
+//   }
 
-  res.render('signup');
-});
+//   res.render('signup');
+// });
 
 router.get('/create-post', (req, res) => {
   // If the user is already logged out, redirect the request to another route
