@@ -8,6 +8,7 @@ try {
         email: req.body.email,
         password: req.body.password
     });
+    }
     .then(userData => {
         req.session.save(() => {
         req.session.user_id = userData.id;
@@ -15,14 +16,8 @@ try {
         req.session.logged_in = true;
 
         res.status(200).json(userData);
+    }
     })
-    
-    res.status(200).json(userData);
-    });
-} 
-catch (err) {
-    res.status(400).json(err);
-}
 });
 
 router.post('/login', async (req, res) => {
