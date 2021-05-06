@@ -5,14 +5,26 @@ const router = require("express").Router();
 
 //Get all posts and display as the homepage of the app
 router.get("/", async (req, res) => {
+  console.log('HERE')
     try {
-        Post.findAll({
-            attributes: [
-                "title",
-                "content",
-                "user_id"
+        const postData = Post.findAll({
+          where: {
+            //user id is eqal to id of the current user session
+            user_id: req.session.user_id,
+          },
+             attributes: [
+                username: '',
+                content: '',
+                created_at: '',
             ]
-        })
+        });
+
+        const post = (await postData).map(post => post.get({plain: true }))
+        ; 
+
+        console.log('POSTS', posts);
+      }
+
         .then(postData => {
             const posts = postData.map(post => post.get({ plain: true}));
             res.render("dashboard", {posts});
