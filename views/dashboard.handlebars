@@ -1,19 +1,9 @@
-<p>TEST</p>
+{{>user-info}}
 
-{{>sidebar}}
+{{>post}}
 
-{{>create-post}}
-
-{{#if posts.length}}
-<section>
-  <h2>Your Posts</h2>
-  {{#each posts as |post|}}
-  {{> dashboard-postinfo post}}
-  {{/each}}
-
-</section>
-{{/if}}
-
-<button type="submit" class="btn"><a class="link" href="/dashboard/new">+ New Post</a></button>
+<p>Display all of my posts in chronological order, newest > oldest</p>
+<p>Display counter icon for new comments received</p>
+<p>Display notifications for other users favoriting me</p>
 
 <script src="/js/create-post.js"></script>
