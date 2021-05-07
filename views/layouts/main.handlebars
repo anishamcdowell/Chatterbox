@@ -55,11 +55,14 @@
     </header>
 
     <main class="row">
+        {{!-- If logged in; show sidebar on every page with main body --}}
         {{#if logged_in}}
         {{>sidebar}}
         <section class="col-8 mx-auto mt-5 mb-5" id="logged_in body">
         {{{ body }}}
         </section>
+
+        {{!-- Else if not logged in, no sidebar is ever visible, only the main body --}}
         {{else}}
         <section class="col-8 mx-auto mt-5 mb-5">
         {{{ body }}}
