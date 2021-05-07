@@ -1,3 +1,5 @@
+// /dashboard routes
+
 const withAuth = require('../utils/auth');
 const sequelize = require("../config/connection");
 const { User, Post, Forum, Comment } = require ("../models");
