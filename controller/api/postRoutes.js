@@ -1,6 +1,6 @@
 // /api/posts
 
-const { User, Post, Comment, Forum } = require("../../models")
+const { User, Post, Comment } = require("../../models")
 const router = require("express").Router();
 const withAuth = require('../../utils/auth');
 

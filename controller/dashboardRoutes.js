@@ -2,7 +2,7 @@
 
 const withAuth = require('../utils/auth');
 const sequelize = require("../config/connection");
-const { User, Post, Forum, Comment } = require ("../models");
+const { User, Post, Comment } = require ("../models");
 const router = require("express").Router();
 
 // If user is logged in, display dashboard with user's posts and ability to make post
