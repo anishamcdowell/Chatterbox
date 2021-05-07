@@ -1,6 +1,6 @@
 const withAuth = require('../utils/auth');
 const sequelize = require("../config/connection");
-const { User, Post, Comment } = require ("../models");
+const { User, Post, Comment, Forum } = require ("../models");
 const router = require("express").Router();
 
 //Get the selected forum and display all the posts in that forum
