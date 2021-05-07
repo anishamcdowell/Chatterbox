@@ -6,8 +6,16 @@
     <div class="card-body">
         <p class="card-text">{{post.content}}</p>
     </div>
-    <div class="card-footer text-success">
-        Posted by <a href="">username</a> on 4/20/21{{post.created_at}}
+    <div class="card-footer text-success d-flex flex-row justify-content-between">
+        <p>Posted by <a href="">{{user.username}}</a> on {{created_at}}</p>
+        <div class="change-post-buttons">
+            {{!-- {{#if postAuthor}} --}}
+            <button type="clickable" class="btn btn-sm btn-primary" data-id="{{post.id}}">Edit</button>
+            <button type="clickable" class="btn btn-sm btn-danger delete-post" data-id="{{post.id}}" id="delete-button">Delete</button>
+            {{!-- {{/if}} --}}
+        </div>
     </div>
 </div>
 {{/each}}
+
+<script src="/js/create-post.js"></script>

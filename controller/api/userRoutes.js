@@ -60,3 +60,18 @@ try {
   
   module.exports = router;
   
+  //Get all users
+  router.get("/", async (req, res) => {
+    try {
+        User.findAll({
+            attributes: ["username"],
+        })
+        .then(userData => {
+            const users = userData.map(post => user.get({ plain: true}));
+        });
+    }
+    catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
