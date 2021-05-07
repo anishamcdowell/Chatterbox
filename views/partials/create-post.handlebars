@@ -1,39 +1,43 @@
 {{!-- {{#if logged_in}} --}}
-<div id ="create-post-partial" class="col-sm-9 mb-5">
-{{!-- {{else}}
-<div id ="create-post-partial" class="col-sm-9 mt-5 mb-5 mx-auto">
-{{/if}} --}}
+<div id="create-post-partial" class="col-sm-9 mb-5">
+    {{!-- {{else}}
+    <div id="create-post-partial" class="col-sm-9 mt-5 mb-5 mx-auto">
+        {{/if}} --}}
 
 
-    {{!-- CARD TO CREATE A POST --}}
-    <div class="card" style="width: 50rem; height: 20rem">
-        <div class="card-header bg-success">
-            <p class="fs-5 text-white" style="margin-bottom: 0;">Create a new post...</p>
-        </div>
-        <div class="card-body">
-            <form action="" method="POST" class="new-post-form">
-                <div class="form-floating mb-4 row">
-                    <div class="col-lg-6 col-md-8 col-sm-10">
-                        <input type="text" class="form-control" id ="post-title" name="post-title" placeholder="Post Title"
-                            autofocus="true">
+        {{!-- CARD TO CREATE A POST --}}
+        <div class="card" style="width: 50rem; height: 20rem">
+            <div class="card-header bg-success">
+                <p class="fs-5 text-white" style="margin-bottom: 0;">Create a new post...</p>
+            </div>
+            <div class="card-body">
+                {{!-- BEGIN FORM --}}
+                <form class="new-post-form">
+                    {{!-- Post title input --}}
+                    <div class="form-floating mb-4 row">
+                        <div class="col-lg-6 col-md-8 col-sm-10">
+                            <input type="text" class="form-control" id="post-title" name="post-title"
+                                placeholder="Post Title" autofocus="true">
+                        </div>
                     </div>
-                </div>
-                <div class="mb-3">
-                    <input type= rows="5" class="form-control" placeholder="Post Content" id="post-content" name="post-content"></input>
-                </div>
-                
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary">
-                        Create
-                    </button>
-                    <button class="btn btn-danger">
-                        Cancel
-                    </button>
-                </div>
-            </form>
+                    {{!-- Post content input --}}
+                    <div class="mb-3">
+                        <textarea type="textarea" rows="5" class="form-control" placeholder="Post Content"
+                            id="post-content" name="post-content"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">
+                            Create
+                        </button>
+                        <button class="btn btn-danger">
+                            Cancel
+                        </button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-</div>
 
 
-<script src="/js/create-post.js"></script>
+    <script src="/js/create-post.js"></script>
