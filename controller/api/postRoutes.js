@@ -30,7 +30,7 @@ router.get("/", async (req, res) => {
     }
 });
 
-//TODO: Get a single post and display its associated comments - requires auth
+// Get a single post and display its associated comments - requires auth
 router.get("/post/:id", async (req, res) => {
     try {
         Post.findOne({

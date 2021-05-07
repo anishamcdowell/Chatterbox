@@ -16,7 +16,13 @@ router.get("/", async (req, res) => {
         .then(postData => {
           
             const posts = postData.map(post => post.get({ plain: true}));
-            res.render("homepage", {posts, logged_in: req.session.logged_in});
+            
+            if (req.session.logged_in) {
+              res.render("dashboard", {posts, logged_in: req.session.logged_in});
+            } else {
+              res.render("homepage", {posts, logged_in: req.session.logged_out});
+            };
+
         });
     }
     catch (err) {
@@ -30,7 +36,7 @@ router.get('/login', (req, res) => {
   console.log(req.session)
   // If the user is already logged in, redirect the request to their dashboard
   if (req.session.logged_in) {
-    res.redirect('/dashboard');
+    res.redirect('/dashboard', {logged_in: req.session.logged_in});
     return;
   }
 
@@ -56,7 +62,7 @@ router.get('/create-post', (req, res) => {
     return;
   }
 
-  res.render('create-post');
+  res.render('create-post', {logged_in: req.session.logged_in});
 });
 
 // View your own user profile if you are logged in
@@ -67,6 +73,26 @@ router.get('/profile', (req, res) => {
     return;
   }
   res.render('profile', {logged_in: req.session.logged_in});
-})
+});
+
+// View settings for logged in account
+router.get('/settings', (req, res) => {
+
+  if (req.session.logged_out) {
+    res.redirect('/login');
+    return;
+  }
+  res.render('settings', {logged_in: req.session.logged_in});
+});
+
+// View help/support page for users
+router.get('/help', (req, res) => {
+
+  if (req.session.logged_out) {
+    res.redirect('/login');
+    return;
+  }
+  res.render('help', {logged_in: req.session.logged_in});
+});
 
 module.exports = router;
