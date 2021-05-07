@@ -1,11 +1,13 @@
+{{>sidebar}}
+
 <div id="header">
     <h1>{{forum_name}}</h1>
 </div>
 <div id="create-post-container">
-    {{ > create-post }}
+    {{>create-post }}
 </div>
 <div id="forum-posts-container">
     {{#each posts as |Post|}}
-        {{ > forum-post }}
+        {{>forum-post }}
     {{/each}}
 </div>
