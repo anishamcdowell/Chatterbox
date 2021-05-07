@@ -20,11 +20,10 @@
             <div class="container-fluid">
                 <a class="navbar-brand" href="#"><img src="/images/CB-Logo-Transparent.png" style="height: 75px; "></a>
                 <ul class="navbar-nav">
+
+                    {{#if logged_in}}
                     <li class="nav-item">
                         <a href="/" class="nav-link">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/login" class="nav-link">Login</a>
                     </li>
                     <li class="nav-item">
                         <a href="/profile" class="nav-link">My Profile</a>
@@ -38,13 +37,38 @@
                     <li class="nav-item">
                         <a href="/help" class="nav-link">?</a>
                     </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" id="logout">Logout</a>
+                    </li>
+
+                    {{else}}
+                    <li class="nav-item">
+                        <a href="/signup" class="nav-link">Sign Up</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/login" class="nav-link">Login</a>
+                    </li>
+                    {{/if}}
                 </ul>
             </div>
         </nav>
     </header>
 
     <main class="row">
+        {{!-- If logged in; show sidebar on every page with main body --}}
+        {{#if logged_in}}
+        {{>sidebar}}
+        <section class="col-8 mx-auto mt-5 mb-5" id="logged_in body">
         {{{ body }}}
+        </section>
+
+        {{!-- Else if not logged in, no sidebar is ever visible, only the main body --}}
+        {{else}}
+        <section class="col-8 mx-auto mt-5 mb-5">
+        {{{ body }}}
+        </section>
+        {{/if}}
+        
     </main>
 
     <footer class="bg-light text-center text-lg-start">
@@ -62,13 +86,6 @@
         <!-- Copyright -->
     </footer>
 
-    {{#if loggedIn}}
-    <script src="/javascript/logout.js"></script>
-    {{/if}}
-
-    {{#if logged_in}}
-        <a href="/profile">profile</a> |
-        <button class="no-button" id="logout">logout</button>
-        {{else}}
-        <a href="/login">login</a>
-        {{/if}}
+    {{!-- {{#if loggedIn}} --}}
+    <script src="/js/logout.js"></script>
+    {{!-- {{/if}} --}}

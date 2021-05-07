@@ -16,8 +16,13 @@ router.get("/", async (req, res) => {
         .then(postData => {
           
             const posts = postData.map(post => post.get({ plain: true}));
-            console.log("here", posts);
-            res.render("homepage", {posts});
+            
+            if (req.session.logged_in) {
+              res.render("dashboard", {posts, logged_in: req.session.logged_in});
+            } else {
+              res.render("homepage", {posts, logged_in: req.session.logged_out});
+            };
+
         });
     }
     catch (err) {
@@ -26,87 +31,19 @@ router.get("/", async (req, res) => {
     }
 });
 
-// const router = require('express').Router();
-// const sequelize = require("../config/connection");
-// const { Post, User } = require('../models');
-
-// router.get('/', async (req, res) => {
-//   try {
-//     // Get all posts and JOIN with user data
-//     await Post.findAll({
-//       include: [
-//         {
-//           model: User,
-//           attributes: ['name'],
-//         },
-//       ],
-//     });
-
-//     // Serialize data so the template can read it
-//     const posts = postData.map((post) => post.get({ plain: true }));
-
-//     // Pass serialized data and session flag into template
-//     res.render('homepage', { 
-//       posts, 
-//       // logged_in: req.session.logged_in 
-//     });
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
-
-// router.get('/post/:id', async (req, res) => {
-//   try {
-//     const Data = await Post.findByPk(req.params.id, {
-//       include: [
-//         {
-//           model: User,
-//           attributes: ['name'],
-//         },
-//       ],
-//     });
-
-//     const post = postData.get({ plain: true });
-
-//     res.render('post', {
-//       ...post,
-//       logged_in: req.session.logged_in
-//     });
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
-
-// // Use withAuth middleware to prevent access to route
-router.get('/dashboard', withAuth, async (req, res) => {
-  try {
-    // Find the logged in user based on the session ID
-    const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ['password'] },
-      include: [{ model: Project }],
-    });
-
-    const user = userData.get({ plain: true });
-
-    res.render('profile', {
-      ...user,
-      logged_in: true
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
+// Login
 router.get('/login', (req, res) => {
-  // If the user is already logged in, redirect the request to another route
+  console.log(req.session)
+  // If the user is already logged in, redirect the request to their dashboard
   if (req.session.logged_in) {
-    res.redirect('/dashboard');
+    res.redirect('/dashboard', {logged_in: req.session.logged_in});
     return;
   }
 
   res.render('login');
 });
 
+// Signup 
 router.get('/signup', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
@@ -117,14 +54,45 @@ router.get('/signup', (req, res) => {
   res.render('signup');
 });
 
+//Creat a post
 router.get('/create-post', (req, res) => {
-  // If the user is already logged out, redirect the request to another route
+  // If the user is logged out, redirect the request to the login
   if (req.session.logged_out) {
-    res.redirect('/signup');
+    res.redirect('/login');
     return;
   }
 
-  res.render('create-post');
+  res.render('create-post', {logged_in: req.session.logged_in});
+});
+
+// View your own user profile if you are logged in
+router.get('/profile', (req, res) => {
+
+  if (req.session.logged_out) {
+    res.redirect('/login');
+    return;
+  }
+  res.render('profile', {logged_in: req.session.logged_in});
+});
+
+// View settings for logged in account
+router.get('/settings', (req, res) => {
+
+  if (req.session.logged_out) {
+    res.redirect('/login');
+    return;
+  }
+  res.render('settings', {logged_in: req.session.logged_in});
+});
+
+// View help/support page for users
+router.get('/help', (req, res) => {
+
+  if (req.session.logged_out) {
+    res.redirect('/login');
+    return;
+  }
+  res.render('help', {logged_in: req.session.logged_in});
 });
 
 module.exports = router;
