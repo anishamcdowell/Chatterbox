@@ -1,4 +1,4 @@
-# Chatterbox
+# ![Chatterbox](./public/images/CB-Logo-Transparent.png)
 
 Chatterbox is inspired by the spirit of the Niner Nation where every one is family and as a family users want to stay connected. It is a user-friendly web application that allows the user to sign up, login to their profile and connect with our users within the UNC Charlotte network. Current features include profile creation/customization, post creation, and up to date feed and posts from all users that have been posted within the application. As it progresses this application will allow users to have more interaction with others through liking, commenting and sharing posts. It will also have dedicated forums for specific interests that users can follow and post within.
 
@@ -45,7 +45,7 @@ Github Repo Link: https://github.com/anishamcdowell/Chatterbox
 
 ## Demo Video
 
-![Marvel Eye](./assets/Images/Marvel-Eye.gif)
+![Chatterbox](./public/images/Chatterbox.gif)
 
 ## API Information
 
