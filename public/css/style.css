@@ -1,0 +1,20 @@
+body {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.future-dev {
+    border-style: solid;
+    padding: 5px;
+    margin-top: 3rem;
+    background-color: lightgreen;
+}
+
+.future-dev h2 {
+    font-size: 16px;
+    line-height: 3;
+}
+
+.future-dev p {
+    font-size: 12px;
+    line-height: 1;
+}

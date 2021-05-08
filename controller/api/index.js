@@ -3,6 +3,7 @@ const userRoutes = require('./userRoutes');
 // const forumRoutes = require('./forumRoutes');
 const postRoutes = require("./postRoutes");
 const commentRoutes = require('./commentRoutes');
+const { Forum, User, Post } = require('../../models');
 
 router.use('/users', userRoutes);
 // router.use('/forums', forumRoutes);
