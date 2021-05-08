@@ -23,17 +23,17 @@ Post.init(
         user_id: {
             type: DataTypes.INTEGER,
             references: {
-                model: "user",
-                key: "id"
+                model: 'user',
+                key: 'id'
             }
         },
-        forum_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'forum',
-                key: 'id',
-            }
-        }
+        // forum_id: {
+        //     type: DataTypes.INTEGER,
+        //     references: {
+        //         model: 'forum',
+        //         key: 'id',
+        //     }
+        // }
     },
     {
         sequelize,
