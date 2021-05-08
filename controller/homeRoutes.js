@@ -43,6 +43,18 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+// Logout
+router.get('/logout', (req, res) => {
+  console.log(req.session)
+  // If the user is already logged in, redirect the request to their dashboard
+  if (req.session.logged_in) {
+    res.redirect('/', {logged_in: req.session.logged_in});
+    return;
+  }
+
+  res.render('homepage');
+});
+
 // Signup 
 router.get('/signup', (req, res) => {
   // If the user is already logged in, redirect the request to another route
@@ -54,7 +66,7 @@ router.get('/signup', (req, res) => {
   res.render('signup');
 });
 
-//Creat a post
+//Create a post
 router.get('/create-post', (req, res) => {
   // If the user is logged out, redirect the request to the login
   if (req.session.logged_out) {
