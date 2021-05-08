@@ -1,5 +1,5 @@
 const seedUsers = require('./user-seed');
-const seedForums = require("./forum-seeds");
+// const seedForums = require("./forum-seeds");
 const seedPosts = require('./post-seeds');
 const seedComments = require('./comment-seeds');
 
@@ -12,8 +12,8 @@ const seedAll = async() => {
     await seedUsers();
     console.log("== USER TABLE SEEDED ==");
 
-    await seedForums();
-    console.log("== FORUM TABLE SEEDED ==");
+    // await seedForums();
+    // console.log("== FORUM TABLE SEEDED ==");
 
     await seedPosts();
     console.log("== POSTS TABLE SEEDED ==");
