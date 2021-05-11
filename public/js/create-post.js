@@ -46,10 +46,13 @@ const deleteButtonHandler = async (event) => {
   }
 };
 
-document
-  .querySelector(".new-post-form")
-  .addEventListener("submit", newPostHandler);
+const newPostForm = document
+  .querySelector(".new-post-form");
 
-document
-  .querySelector(".delete-post")
+if (newPostForm) newPostForm.addEventListener("submit", newPostHandler);
+
+const deletePostButton = document
+  .querySelector(".delete-post");
+
+if (deletePostButton) deletePostButton
   .addEventListener("click", deleteButtonHandler)

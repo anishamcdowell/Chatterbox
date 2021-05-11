@@ -25,10 +25,6 @@ router.get("/", async (req, res) => {
         .then(postData => {
             const posts = postData.map(post => post.get({ plain: true}));
             res.render("dashboard", {posts, loggedIn: req.session.loggedIn});
-            // console.log(postData);
-            // const posts = postData.map(post => post.get({ plain: true}));
-            // res.json(postData);
-            // res.render("homepage", {allPost: postData});
         });
     }
     catch (err) {
@@ -91,8 +87,7 @@ router.delete('/:id', withAuth, async (req, res) => {
     try {
       const postData = await Post.destroy({
         where: {
-          id: req.params.id,
-          user_id: req.session.user_id,
+          id: req.params.id
         },
       });
   
