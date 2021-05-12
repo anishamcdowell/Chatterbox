@@ -10,7 +10,10 @@
         <p>Posted by <a href="">{{user.username}}</a> on {{created_at}}</p>
         <div class="change-post-buttons">
             {{!-- {{#if postAuthor}} --}}
-            <button type="clickable" class="btn btn-sm btn-primary" data-id="{{post.id}}">Edit</button>
+            <button type="clickable" class="btn btn-sm btn-primary edit-post"
+             data-title="{{post.title}}"
+             data-content="{{post.content}}"
+             data-id="{{post.id}}">Edit</button>
             <button type="clickable" class="btn btn-sm btn-danger delete-post" data-id="{{post.id}}" id="delete-button">Delete</button>
             {{!-- {{/if}} --}}
         </div>
@@ -18,4 +21,3 @@
 </div>
 {{/each}}
 
-<script src="/js/create-post.js"></script>
